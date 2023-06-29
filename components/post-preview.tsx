@@ -28,7 +28,7 @@ const PostPreview = ({
           <CoverImage slug={slug} title={title} src={coverImage} />
         </div>
       </div>
-      <div className="flex-1" ml-4>
+      <div className="flex-1 ml-4">
         <h3 className="text-xl">
           <Link
             as={`/posts/${slug}`}
