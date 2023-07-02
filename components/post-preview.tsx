@@ -11,6 +11,7 @@ type Props = {
   excerpt: string;
   author: Author;
   slug: string;
+  tags: string[];
 };
 
 const PostPreview = ({
@@ -20,6 +21,7 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
+  tags,
 }: Props) => {
   return (
     <div>
@@ -38,6 +40,13 @@ const PostPreview = ({
             {title}
           </Link>
         </h3>
+        <ul className="flex gap-x-2">
+          {tags.map((tag, index) => (
+            <li key={index} className="font-bold mb-12">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </li>
+          ))}
+        </ul>
         <div className="flex flex-row">
           <Avatar name={author.name} picture={author.picture} />
           <div className="font-bold text-xs my-auto mx-2">

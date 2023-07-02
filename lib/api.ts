@@ -55,7 +55,7 @@ export const getPostsByTag = (tag: string, fields: string[] = []) => {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 };
 
-export const getAllTags = () => {
+export const getAllTags = (): string[] => {
   const allPostTags = getAllPosts(["tags"])
     .flatMap((post) => post.tags)
     .sort();
