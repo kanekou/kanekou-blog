@@ -61,3 +61,30 @@ export const getAllTags = (): string[] => {
     .sort();
   return Array.from(new Set(allPostTags));
 };
+
+export const getPostsByTags = () => {
+  const allTags = getAllTags();
+  const postsByTags = allTags.map((tag) => ({
+    name: tag,
+    // posts: getPostsByTag(tag, [
+    //   "title",
+    //   "date",
+    //   "slug",
+    //   "author",
+    //   "coverImage",
+    //   "excerpt",
+    //   "tags",
+    // ]),
+    posts: getAllPosts([
+      "title",
+      "date",
+      "slug",
+      "author",
+      "coverImage",
+      "excerpt",
+      "tags",
+    ]),
+  }));
+
+  return postsByTags;
+};
