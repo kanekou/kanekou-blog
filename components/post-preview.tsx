@@ -14,6 +14,7 @@ type Props = {
   tags: string[];
 };
 
+// FIXME: add encodeURIComponent
 const PostPreview = ({
   title,
   coverImage,
@@ -44,7 +45,6 @@ const PostPreview = ({
         <ul className="flex gap-x-2">
           {tags.map((tag, index) => (
             <li key={index} className="font-bold mb-12">
-              // FIXME: add encodeURIComponent
               <a href={`/tags/${tag}`}>{tag}</a>
             </li>
           ))}
