@@ -66,24 +66,7 @@ export const getPostsByTags = () => {
   const allTags = getAllTags();
   const postsByTags = allTags.map((tag) => ({
     name: tag,
-    // posts: getPostsByTag(tag, [
-    //   "title",
-    //   "date",
-    //   "slug",
-    //   "author",
-    //   "coverImage",
-    //   "excerpt",
-    //   "tags",
-    // ]),
-    posts: getAllPosts([
-      "title",
-      "date",
-      "slug",
-      "author",
-      "coverImage",
-      "excerpt",
-      "tags",
-    ]),
+    count: getPostsByTag(tag, ["tags"]).length,
   }));
 
   return postsByTags;
