@@ -50,10 +50,7 @@ export default function Tags({ tags }: TagsProps) {
                   const tagName = tagInfo[0];
                   const rank = tagInfo[1];
                   return (
-                    <button className={getButtonStyle(rank)}>
-                      {tagName}
-                      {rank}
-                    </button>
+                    <button className={getButtonStyle(rank)}>{tagName}</button>
                   );
                 })}
             </div>
