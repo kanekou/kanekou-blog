@@ -1,9 +1,8 @@
 import Container from "../../components/container";
-import MoreStories from "../../components/more-stories";
-import Post from "../../interfaces/post";
+import Link from "next/link";
 import Layout from "../../components/layout";
 import Head from "next/head";
-import { getPostsByTags, getPostsByTag } from "../../lib/api";
+import { getPostsByTags } from "../../lib/api";
 
 type TagProps = {
   name: string;
@@ -50,7 +49,12 @@ export default function Tags({ tags }: TagsProps) {
                   const tagName = tagInfo[0];
                   const rank = tagInfo[1];
                   return (
-                    <button className={getButtonStyle(rank)}>{tagName}</button>
+                    <Link
+                      href={`/tags/${encodeURIComponent(tagName)}`}
+                      className={getButtonStyle(rank)}
+                    >
+                      {tagName}
+                    </Link>
                   );
                 })}
             </div>

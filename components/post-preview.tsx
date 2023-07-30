@@ -33,6 +33,7 @@ const PostPreview = ({
       <div className="flex-1 ml-4">
         <h3 className="text-xl">
           <Link
+            // FIXME: add encodeURIComponent
             as={`/posts/${slug}`}
             href="/posts/[slug]"
             className="hover:underline"
@@ -43,6 +44,7 @@ const PostPreview = ({
         <ul className="flex gap-x-2">
           {tags.map((tag, index) => (
             <li key={index} className="font-bold mb-12">
+              // FIXME: add encodeURIComponent
               <a href={`/tags/${tag}`}>{tag}</a>
             </li>
           ))}
