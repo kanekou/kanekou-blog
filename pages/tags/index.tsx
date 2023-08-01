@@ -68,11 +68,10 @@ export default function Tags({ tags }: TagsProps) {
 // export async function getStaticProps({ params }: Params) {
 export async function getStaticProps() {
   const tags = getPostsByTags();
-  // const testGetPost = getPostsByTag("tag1");
 
   return {
     props: {
-      tags: getTestData(),
+      tags: tags,
     },
   };
 }
@@ -116,33 +115,4 @@ const getRankWithTie = (orderedTags: RankedTagProps[]): RankedTagProps[] => {
     }
   }
   return orderedTags;
-};
-
-const getTestData = () => {
-  return [
-    {
-      name: "tag1",
-      count: 2,
-    },
-    {
-      name: "tag2",
-      count: 3,
-    },
-    {
-      name: "あああああああああ",
-      count: 3,
-    },
-    {
-      name: "技術記事",
-      count: 8,
-    },
-    {
-      name: "いいいいいいいいいいい",
-      count: 5,
-    },
-    {
-      name: "えええ",
-      count: 1,
-    },
-  ];
 };
