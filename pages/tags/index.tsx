@@ -65,7 +65,6 @@ export default function Tags({ tags }: TagsProps) {
   );
 }
 
-// export async function getStaticProps({ params }: Params) {
 export async function getStaticProps() {
   const tags = getPostsByTags();
 
