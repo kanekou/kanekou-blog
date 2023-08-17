@@ -14,6 +14,7 @@ type Props = {
   tags: string[];
 };
 
+// FIXME: add encodeURIComponent
 const PostPreview = ({
   title,
   coverImage,
@@ -33,6 +34,7 @@ const PostPreview = ({
       <div className="flex-1 ml-4">
         <h3 className="text-xl">
           <Link
+            // FIXME: add encodeURIComponent
             as={`/posts/${slug}`}
             href="/posts/[slug]"
             className="hover:underline"

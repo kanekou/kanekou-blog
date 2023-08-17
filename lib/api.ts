@@ -61,3 +61,13 @@ export const getAllTags = (): string[] => {
     .sort();
   return Array.from(new Set(allPostTags));
 };
+
+export const getPostsByTags = () => {
+  const allTags = getAllTags();
+  const postsByTags = allTags.map((tag) => ({
+    name: tag,
+    count: getPostsByTag(tag, ["tags"]).length,
+  }));
+
+  return postsByTags;
+};
