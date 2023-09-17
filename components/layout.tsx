@@ -1,5 +1,6 @@
 import Alert from "./alert";
 import Meta from "./meta";
+import Header from "./header";
 
 type Props = {
   preview?: boolean;
@@ -11,7 +12,9 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta />
       <div className="min-h-screen bg-blue-100">
-        <Alert preview={preview} />
+        <Header />
+        {preview && <Alert />}
+
         <main>{children}</main>
       </div>
     </>
