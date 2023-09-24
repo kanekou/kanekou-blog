@@ -18,7 +18,7 @@ export default function Index({ posts, tag }: Props) {
           <title>Tag: {tag}</title>
         </Head>
         <Container>
-          <MoreStories posts={posts} title={tag} />
+          <MoreStories posts={posts} title={tag} fromHome={false} />
         </Container>
       </Layout>
     </>
