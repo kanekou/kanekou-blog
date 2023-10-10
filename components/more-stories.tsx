@@ -15,18 +15,17 @@ const getTitleClass = (fromHome: boolean) => {
 
 const MoreStories = ({ posts, title, fromHome = true }: Props) => {
   return (
-    <section className="max-w-4xl mx-auto">
+    <section className="max-w-7xl mx-auto">
       <h2 className={getTitleClass(fromHome)}>{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 pb-32">
+      {/* FIXME: responsiveが働いていない　 */}
+      <div className="grid grid-cols-2 gap-4 w-full mb-12">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
-            author={post.author}
             slug={post.slug}
-            excerpt={post.excerpt}
             tags={post.tags}
           />
         ))}
