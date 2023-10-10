@@ -19,13 +19,14 @@ const PostHeader = ({ title, coverImage, date, author, tags }: Props) => {
       <div className="hidden md:block md:mb-12">
         <Avatar name={author.name} picture={author.picture} />
       </div>
-      <ul className="flex gap-x-2">
-        {tags.map((tag, index) => (
-          <li key={index} className="font-bold mb-12">
-            <a href={`/tags/${tag}`}>{tag}</a>
-          </li>
-        ))}
-      </ul>
+      {tags.map((tag, index) => (
+        <span
+          key={index}
+          className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+        >
+          <a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a>
+        </span>
+      ))}
       <div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} src={coverImage} />
       </div>
