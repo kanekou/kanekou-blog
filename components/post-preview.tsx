@@ -1,37 +1,60 @@
+import Avatar from "./avatar";
 import DateFormatter from "./date-formatter";
 import CoverImage from "./cover-image";
 import Link from "next/link";
+import type Author from "../interfaces/author";
 
 type Props = {
   title: string;
   coverImage: string;
   date: string;
+  excerpt: string;
+  author: Author;
   slug: string;
   tags: string[];
 };
 
-const PostPreview = ({ title, coverImage, date, slug, tags }: Props) => {
+// FIXME: add encodeURIComponent
+const PostPreview = ({
+  title,
+  coverImage,
+  date,
+  excerpt,
+  author,
+  slug,
+  tags,
+}: Props) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <CoverImage slug={slug} title={title} src={coverImage} />
-      <div className="px-6 py-4">
-        <Link
-          as={`/posts/${encodeURIComponent(slug)}`}
-          href="/posts/[slug]"
-          aria-label={title}
-        >
-          <div className="font-bold text-xl mb-2">{title}</div>
-        </Link>
-        <p className="text-gray-700 text-base">
-          <DateFormatter dateString={date} />
-        </p>
+    <div>
+      <div className="flex flex-row">
+        <div className="w-32 h-32">
+          <CoverImage slug={slug} title={title} src={coverImage} />
+        </div>
       </div>
-      <div className="px-6 pb-2">
-        {tags.map((tag) => (
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            <a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a>
-          </span>
-        ))}
+      <div className="flex-1 ml-4">
+        <h3 className="text-xl">
+          <Link
+            // FIXME: add encodeURIComponent
+            as={`/posts/${slug}`}
+            href="/posts/[slug]"
+            className="hover:underline"
+          >
+            {title}
+          </Link>
+        </h3>
+        <ul className="flex gap-x-2">
+          {tags.map((tag, index) => (
+            <li key={index} className="font-bold mb-12">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-row">
+          <Avatar name={author.name} picture={author.picture} />
+          <div className="font-bold text-xs my-auto mx-2">
+            <DateFormatter dateString={date} />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
+import { CMS_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import initTwitterScriptInner from "zenn-embed-elements/lib/init-twitter-script-inner";
@@ -40,7 +41,9 @@ export default function Post({ post, morePosts, preview }: Props) {
           <>
             <article className="pb-32">
               <Head>
-                <title>{post.title}</title>
+                <title>
+                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                </title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader

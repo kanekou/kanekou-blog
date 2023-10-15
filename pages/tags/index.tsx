@@ -24,7 +24,7 @@ export default function Tags({ tags }: TagsProps) {
   // 件数が上位3つのtagは，1位から順に大きなボタンサイズにする
   const getButtonStyle = (rank: number) => {
     const defaultButtonStyle =
-      "bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-whitepl-2 px-4 border border-yellow-700 hover:border-transparent rounded-full";
+      "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-whitepl-2 px-4 border border-blue-500 hover:border-transparent rounded-full";
     if (rank === 1) return `text-6xl ${defaultButtonStyle}`;
     if (rank === 2) return `text-4xl ${defaultButtonStyle}`;
     if (rank === 3) return `text-2xl ${defaultButtonStyle}`;
