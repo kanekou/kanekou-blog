@@ -9,14 +9,13 @@ type Props = {
 
 const PostBody = ({ content }: Props) => {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="prose max-w-2xl mx-auto">
       <Markdown
+        children={content}
         rehypePlugins={[rehypeRaw]}
         remarkPlugins={[remarkGfm]}
         components={{ code: CodeBlock }}
-      >
-        {content}
-      </Markdown>
+      />
     </div>
   );
 };
