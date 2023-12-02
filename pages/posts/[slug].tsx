@@ -65,7 +65,6 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "tags",
   ]);
-  // FIXME: rehype-rawでmarkdownをHTMLに変換する
   const content = post.content;
 
   return {
