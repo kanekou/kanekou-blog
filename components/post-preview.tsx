@@ -12,7 +12,7 @@ type Props = {
 
 const PostPreview = ({ title, coverImage, date, slug, tags }: Props) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="h-full w-full rounded shadow-lg">
       <CoverImage slug={slug} title={title} src={coverImage} />
       <div className="px-6 py-4">
         <Link
