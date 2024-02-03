@@ -3,6 +3,9 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import CodeBlock from "./code-block";
 
+import remarkToc from "remark-toc";
+import remarkSlug from "rehype-slug";
+
 type Props = {
   content: string;
 };
@@ -13,7 +16,11 @@ const PostBody = ({ content }: Props) => {
       <Markdown
         children={content}
         rehypePlugins={[rehypeRaw]}
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[
+          remarkGfm,
+          remarkSlug,
+          [remarkToc, { maxDepth: 2, heading: "目次" }],
+        ]}
         components={{ code: CodeBlock }}
       />
     </div>
