@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm";
 import CodeBlock from "./code-block";
 
 import remarkToc from "remark-toc";
-import remarkSlug from "rehype-slug";
+import rehypeSlug from "rehype-slug";
 
 type Props = {
   content: string;
@@ -15,10 +15,9 @@ const PostBody = ({ content }: Props) => {
     <div className="prose max-w-2xl mx-auto">
       <Markdown
         children={content}
-        rehypePlugins={[rehypeRaw]}
+        rehypePlugins={[rehypeRaw, rehypeSlug]}
         remarkPlugins={[
           remarkGfm,
-          remarkSlug,
           [remarkToc, { maxDepth: 2, heading: "目次" }],
         ]}
         components={{ code: CodeBlock }}
