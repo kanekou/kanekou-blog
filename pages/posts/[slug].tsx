@@ -11,7 +11,6 @@ import type PostType from "../../interfaces/post";
 
 type Props = {
   post: PostType;
-  // morePosts: PostType[];
   preview?: boolean;
 };
 
