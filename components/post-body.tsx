@@ -12,7 +12,7 @@ type Props = {
 
 const PostBody = ({ content }: Props) => {
   return (
-    <div className="prose max-w-2xl mx-auto">
+    <div className="prose mx-auto">
       <Markdown
         children={content}
         rehypePlugins={[rehypeRaw, rehypeSlug]}
