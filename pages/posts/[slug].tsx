@@ -27,20 +27,17 @@ export default function Post({ post, morePosts, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="pb-32">
-              <Head>
-                <title>{post.title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-                tags={post.tags}
-              />
-              <PostBody content={post.content} />
-            </article>
+            <Head>
+              <title>{post.title}</title>
+              <meta property="og:image" content={post.ogImage.url} />
+            </Head>
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              tags={post.tags}
+            />
+            <PostBody content={post.content} />
           </>
         )}
       </Container>
