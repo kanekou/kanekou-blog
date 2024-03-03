@@ -16,18 +16,19 @@ const PostHeader = ({ title, coverImage, date, tags }: Props) => {
       <div className="mb-6 text-right">
         <DateFormatter dateString={date} />
       </div>
-      {tags.map((tag, index) => (
-        <span
-          key={index}
-          className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-        >
-          <a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a>
-        </span>
-      ))}
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} />
+      <div className="container mx-auto max-w-4xl">
+        {tags.map((tag, index) => (
+          <span
+            key={index}
+            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+          >
+            <a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a>
+          </span>
+        ))}
+        <div className="mb-8 md:mb-16 sm:mx-0">
+          <CoverImage title={title} src={coverImage} />
+        </div>
       </div>
-      <div className="max-w-2xl mx-auto"></div>
     </>
   );
 };
