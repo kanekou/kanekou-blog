@@ -11,11 +11,10 @@ import type PostType from "../../interfaces/post";
 
 type Props = {
   post: PostType;
-  morePosts: PostType[];
   preview?: boolean;
 };
 
-export default function Post({ post, morePosts, preview }: Props) {
+export default function Post({ post, preview }: Props) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -27,20 +26,17 @@ export default function Post({ post, morePosts, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="pb-32">
-              <Head>
-                <title>{post.title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-                tags={post.tags}
-              />
-              <PostBody content={post.content} />
-            </article>
+            <Head>
+              <title>{post.title}</title>
+              <meta property="og:image" content={post.ogImage.url} />
+            </Head>
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              tags={post.tags}
+            />
+            <PostBody content={post.content} />
           </>
         )}
       </Container>
