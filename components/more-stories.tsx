@@ -17,8 +17,7 @@ const MoreStories = ({ posts, title, fromHome = true }: Props) => {
   return (
     <section className="max-w-7xl mx-auto">
       <h2 className={getTitleClass(fromHome)}>{title}</h2>
-      {/* FIXME: responsiveが働いていない　 */}
-      <div className="grid grid-cols-2 gap-4 w-full mb-12">
+      <div className="grid sm:grid-cols-2 gap-4 mb-12 w-full">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
