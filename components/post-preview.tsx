@@ -28,7 +28,10 @@ const PostPreview = ({ title, coverImage, date, slug, tags }: Props) => {
       </div>
       <div className="px-6 pb-2">
         {tags.map((tag) => (
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          <span
+            key={tag}
+            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+          >
             <a href={`/tags/${encodeURIComponent(tag)}`}>{tag}</a>
           </span>
         ))}
