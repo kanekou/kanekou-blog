@@ -1,11 +1,25 @@
 import Head from "next/head";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "../lib/constants";
+import { HOME_OG_IMAGE_URL } from "../lib/constants";
+
+type Props = {
+  title: string;
+  description: string;
+  url: string;
+  type: string;
+  imageUrl?: string;
+};
 
 // SEO改善のために適切に設定する
-const Meta = () => {
+const Meta = ({
+  title,
+  description,
+  url,
+  type,
+  imageUrl = HOME_OG_IMAGE_URL,
+}: Props) => {
   return (
     <Head>
-      <link
+      {/* <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
@@ -31,13 +45,17 @@ const Meta = () => {
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-      />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta name="theme-color" content="#000" /> */}
+      {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
+      <title>{title}</title>
+      <meta name="description" content={`The kanekou's dev blog.`} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:type" content={type} />
+      <meta property="og:image" content={imageUrl} />
     </Head>
   );
 };

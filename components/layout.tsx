@@ -10,7 +10,12 @@ type Props = {
 const Layout = ({ preview, children }: Props) => {
   return (
     <>
-      <Meta />
+      <Meta
+        title="パンうめえ🥯"
+        description="kanekou's dev blog"
+        url="https://kanekou-blog.web.app"
+        type="blog"
+      />
       <div className="min-h-screen">
         <Header />
         {preview && <Alert />}
