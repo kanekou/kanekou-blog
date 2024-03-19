@@ -12,9 +12,10 @@ const Layout = ({ preview, children }: Props) => {
     <>
       <Meta
         title="パンうめえ🥯"
-        description="kanekou's dev blog"
+        description="パンうめえ🥯はkanekouの技術ブログです"
         url="https://kanekou-blog.web.app"
         type="blog"
+        imageUrl="https://kanekou-blog.web.app/image.jpg"
       />
       <div className="min-h-screen">
         <Header />
