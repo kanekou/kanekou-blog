@@ -8,6 +8,7 @@ type Props = {
 };
 
 const Layout = ({ preview, children }: Props) => {
+  const imageUrl = `${process.env.IMAGE_HOST}/image.png`;
   return (
     <>
       <Meta
@@ -15,7 +16,7 @@ const Layout = ({ preview, children }: Props) => {
         description="kanekouの技術ブログです"
         url="https://kanekou-blog.web.app"
         type="blog"
-        imageUrl="https://kanekou-blog.web.app/image.jpg"
+        imageUrl={imageUrl}
       />
       <div className="min-h-screen">
         <Header />
