@@ -48,7 +48,7 @@ const Meta = ({
       <meta name="theme-color" content="#000" /> */}
       {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
       <title>{title}</title>
-      <meta name="description" content={`The kanekou's dev blog.`} />
+      <meta name="description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
