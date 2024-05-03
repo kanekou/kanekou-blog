@@ -16,6 +16,7 @@ type Props = {
 
 export default function Post({ post, preview }: Props) {
   const router = useRouter();
+  const og_iamge = `${process.env.IMAGE_HOST}${post.ogImage.url}`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -28,7 +29,7 @@ export default function Post({ post, preview }: Props) {
           <>
             <Head>
               <title>{post.title}</title>
-              <meta property="og:image" content={post.ogImage.url} />
+              <meta property="og:image" content={og_iamge} />
             </Head>
             <PostHeader
               title={post.title}
