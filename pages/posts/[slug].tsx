@@ -17,7 +17,6 @@ type Props = {
 export default function Post({ post, preview }: Props) {
   const router = useRouter();
   const og_iamge = `${process.env.IMAGE_HOST}${post.ogImage.url}`;
-  console.log(og_iamge);
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
