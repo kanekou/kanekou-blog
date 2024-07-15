@@ -12,7 +12,7 @@ const Layout = ({ preview, children }: Props) => {
   return (
     <>
       <Meta
-        title="パンうめえ🥯"
+        title="パンうめえ"
         description="kanekouの技術ブログです"
         url="https://kanekou-blog.web.app"
         type="blog"
