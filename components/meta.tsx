@@ -19,7 +19,7 @@ const Meta = ({
 }: Props) => {
   return (
     <Head>
-      {/* <link
+      <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
@@ -37,7 +37,7 @@ const Meta = ({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link
+      {/* <link
         rel="mask-icon"
         href="/favicon/safari-pinned-tab.svg"
         color="#000000"
