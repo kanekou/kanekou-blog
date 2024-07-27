@@ -8,9 +8,7 @@ const Header = () => {
           <Link href="/">パンうめえ🥯</Link>
         </div>
         <div className="relative space-x-8 font-mono">
-          <Link href="/tags" className="hover:underline">
-            Tags
-          </Link>
+          <Link href="/tags">Tags</Link>
         </div>
       </div>
     </nav>
