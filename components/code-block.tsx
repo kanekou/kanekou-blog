@@ -24,6 +24,7 @@ const CodeBlock = ({ className, children, ...rest }: Props) => {
         language={lang}
         children={children.replace(/\n$/, "")}
         className="border-2 text-base dark:border-stone-400 md:text-lg"
+        showLineNumbers={true}
       />
     </>
   ) : // 改行が含まれている場合、コードブロックで表示。そうでない場合、インラインで表示。
