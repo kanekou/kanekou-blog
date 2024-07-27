@@ -3,6 +3,7 @@ import Link from "next/link";
 import Layout from "../../components/layout";
 import Head from "next/head";
 import { getPostsByTags } from "../../lib/api";
+import { getTitleClass } from "../../components/more-stories";
 
 type TagProps = {
   name: string;
@@ -40,9 +41,7 @@ export default function Tags({ tags }: TagsProps) {
         </Head>
         <Container>
           <section className="max-w-4xl align-center mx-auto">
-            <h2 className="mb-8 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-              Tags
-            </h2>
+            <h2 className={getTitleClass()}>Tags</h2>
             <div className="flex flex-wrap items-center gap-2 md:gap-4">
               {rankedTagsMap.size > 0 &&
                 Array.from(rankedTagsMap).map((tagInfo) => {

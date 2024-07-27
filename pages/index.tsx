@@ -18,7 +18,7 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           {allPosts.length > 0 && (
-            <MoreStories posts={allPosts} title="パンうめえ🥯" />
+            <MoreStories posts={allPosts} title="Articles" />
           )}
         </Container>
       </Layout>
