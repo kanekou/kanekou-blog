@@ -203,7 +203,7 @@ import CodeBlock from "./code-block";
 記事毎の OGP のイメージと、それ以外のページの OGP を分けて指定できるようにしています。
 
 ↓ 本記事の OPG 表示イメージ(X)
-![本記事のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/hoteOGP.png)
+![本記事のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/homeOGP.png)
 
 ↓ 記事以外の OPG 表示イメージ(X)
 ![記事以外のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/articleOGP.png)
@@ -287,7 +287,9 @@ TailwindCSS を使用し、レスポンシブデザインに対応していま�
 <div className="grid sm:grid-cols-2 gap-4 mb-12 w-full">
 ```
 
+↓ 640px 以上の場合
 ![640px以上](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/responsive640OrMore.png)
+↓ 640px 未満の場合
 ![640px未満](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/responsiveUnder640.png)
 
 tailwindcss のこちらのサイトを参考にしました。
