@@ -277,7 +277,7 @@ export default function Tags({ tags }: TagsProps) {
 }
 ```
 
-以下のように表示されます(もうちょっとデザインなんとかしたい)。
+以下のように表示されます。現状 tag の数が少なく、一位と二位しかないです 🙇‍♂️
 ![本記事のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/tags.png)
 
 ## レスポンシブ対応
