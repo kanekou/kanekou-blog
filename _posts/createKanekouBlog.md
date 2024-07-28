@@ -1,7 +1,7 @@
 ---
 title: "Next.jsで個人ブログを作成しました"
 excerpt: "フロントエンド技術を学びつつ何か成果物を作りたい！のモチベで技術ブログを作成しました。それがこのサイトです。"
-coverImage: "/assets/blog/createKanekouBlog/cover.png"
+coverImage: "/assets/blog/createKanekouBlog/ogp.png"
 date: "2024-07-28"
 ogImage:
   url: "/assets/blog/createKanekouBlog/ogp.png"
@@ -24,7 +24,7 @@ tags:
 - ブログ機能：Next.js(SSG)、React、TypeScript
 - デザイン：Tailwind CSS
 
-この記事では言及してないのですが、デプロイフローをざっくりいうと下記になります。
+この記事では言及してないのですが、デプロイフローをざっくりいうと下記になります。[エンジニアなら自分でブログを作れ！① 導入編](https://zenn.dev/miketako3/articles/9b2b1a9ec13901)のサイトを参考に実装しました。
 
 - github に push → github actions 上で ssg → firebase に自動テプロイ
 
@@ -192,17 +192,21 @@ import CodeBlock from "./code-block";
 〜
 ```
 
-すると、画像のように出力されます。
+すると、下記画像のように出力されます。
 
-![目次]("https://kanekou-blog.web.app/assets/blog/createKanekouBlog/table_of_contents.png")
+![目次](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/tableOfContents.png)
 
 目次を押下すると、対象箇所にジャンプできます。
 
 ### OGP
 
-サイト全体の OGP と、記事枚の OGP を分けて指定できるようにしました。
+記事毎の OGP のイメージと、それ以外のページの OGP を分けて指定できるようにしています。
 
-<!-- TODO: サイト全体の OGP、記事毎の OGP -->
+↓ 本記事の OPG 表示イメージ(X)
+![本記事のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/hoteOGP.png)
+
+↓ 記事以外の OPG 表示イメージ(X)
+![記事以外のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/articleOGP.png)
 
 ## tag 管理
 
@@ -283,11 +287,8 @@ TailwindCSS を使用し、レスポンシブデザインに対応していま�
 <div className="grid sm:grid-cols-2 gap-4 mb-12 w-full">
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/25b8b552-e3fe-456b-bf51-191d8e9457f5/97d5732b-e271-4ce9-8106-4ec8749ae7c0/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/25b8b552-e3fe-456b-bf51-191d8e9457f5/6f15b004-4872-48f7-b554-76393f4abab4/Untitled.png)
-
-![レスポンシブ](https://private-user-images.githubusercontent.com/23465233/352806080-95a72e66-9b40-424a-8eba-19fc5dafad74.png)
+![640px以上](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/responsive640OrMore.png)
+![640px未満](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/responsiveUnder640.png)
 
 tailwindcss のこちらのサイトを参考にしました。
 
