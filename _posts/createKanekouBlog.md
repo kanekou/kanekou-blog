@@ -200,7 +200,7 @@ import CodeBlock from "./code-block";
 
 ### OGP
 
-記事毎の OGP のイメージと、それ以外のページの OGP を分けて指定できるようにしています。
+記事毎の OGP のイメージと、それ以外のページの OGP を分けて指定できるようにしました。
 
 ↓ 本記事の OPG 表示イメージ(X)
 ![本記事のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/homeOGP.png)
@@ -210,7 +210,7 @@ import CodeBlock from "./code-block";
 
 ## tag 管理
 
-主に以下の機能になります
+主に以下の機能になります。
 
 - tag 一覧画面(Tags)
   - 参照回数に応じてタグの大きさ変動
@@ -276,6 +276,9 @@ export default function Tags({ tags }: TagsProps) {
   );
 }
 ```
+
+以下のように表示されます。現状 tag の数が少なく、一位と二位しかないです 🙇‍♂️
+![本記事のOPG](https://kanekou-blog.web.app/assets/blog/createKanekouBlog/tags.png)
 
 ## レスポンシブ対応
 
