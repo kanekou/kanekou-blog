@@ -4,7 +4,7 @@ excerpt: "「プログラマーが知るべき97のこと」を読了したの�
 coverImage: "/assets/blog/read97ThingsEveryProgrammerShouldKnow/cover.png"
 date: "2024-08-12"
 ogImage:
-  url: "/assets/blog/read97ThingsEveryProgrammerShouldKnow/cover.jpg"
+  url: "/assets/blog/read97ThingsEveryProgrammerShouldKnow/cover.png"
 tags:
   - "読書メモ"
 ---
