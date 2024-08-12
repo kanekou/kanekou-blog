@@ -4,7 +4,7 @@ excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 coverImage: "/assets/blog/samplePage/cover.png"
 date: "2024-07-23"
 ogImage:
-  url: "/assets/blog/samplePage/cover.jpg"
+  url: "/assets/blog/samplePage/cover.png"
 tags:
   - "tag1"
   - "tag2"
