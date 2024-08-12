@@ -8,7 +8,7 @@ type Props = {
   imageUrl: string;
 };
 
-// FIXME: SEO改善のために適切に設定する
+// FIXME: SEO改善のために設定を行う
 const Meta = ({ title, description, url, type, imageUrl }: Props) => {
   return (
     <Head>
