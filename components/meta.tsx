@@ -1,22 +1,15 @@
 import Head from "next/head";
-import { HOME_OG_IMAGE_URL } from "../lib/constants";
 
 type Props = {
   title: string;
   description: string;
   url: string;
   type: string;
-  imageUrl?: string;
+  imageUrl: string;
 };
 
-// SEO改善のために適切に設定する
-const Meta = ({
-  title,
-  description,
-  url,
-  type,
-  imageUrl = HOME_OG_IMAGE_URL,
-}: Props) => {
+// FIXME: SEO改善のために適切に設定する
+const Meta = ({ title, description, url, type, imageUrl }: Props) => {
   return (
     <Head>
       <link
