@@ -35,7 +35,6 @@ const Meta = ({ title, description, url, type, imageUrl }: Props) => {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
-      {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
