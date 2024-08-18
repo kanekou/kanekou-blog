@@ -5,11 +5,11 @@ type Props = {
   description: string;
   url: string;
   type: string;
-  imageUrl: string;
+  ogImage: string;
 };
 
 // FIXME: SEO改善のために設定を行う
-const Meta = ({ title, description, url, type, imageUrl }: Props) => {
+const Meta = ({ title, description, url, type, ogImage }: Props) => {
   return (
     <Head>
       <link
@@ -43,7 +43,7 @@ const Meta = ({ title, description, url, type, imageUrl }: Props) => {
       <meta property="og:url" content={url} />
       <meta property="og:site_name" content={title} />
       <meta property="og:type" content={type} />
-      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image" content={ogImage} />
     </Head>
   );
 };
