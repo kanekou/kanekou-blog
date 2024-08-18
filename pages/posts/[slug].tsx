@@ -16,12 +16,12 @@ type Props = {
 
 export default function Post({ post, preview }: Props) {
   const router = useRouter();
-  const og_image = `${process.env.IMAGE_HOST}${post.ogImage.url}`;
+  const ogImage = `${process.env.NEXT_PUBLIC_IMAGE_HOST}${post.ogImage.url}`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} ogImage={ogImage}>
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -29,7 +29,6 @@ export default function Post({ post, preview }: Props) {
           <>
             <Head>
               <title>{post.title}</title>
-              <meta property="og:image" content={og_image} />
             </Head>
             <PostHeader
               title={post.title}
