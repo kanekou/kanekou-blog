@@ -1,9 +1,9 @@
-import Container from "../../components/container";
-import MoreStories from "../../components/more-stories";
-import Post from "../../interfaces/post";
-import Layout from "../../components/layout";
+import Container from "../../../components/container";
+import MoreStories from "../../../components/more-stories";
+import Post from "../../../interfaces/post";
+import Layout from "../../../components/layout";
 import Head from "next/head";
-import { getAllTags, getPostsByTag } from "../../lib/api";
+import { getAllTags, getPostsByTag } from "../../../lib/api";
 
 type Props = {
   posts: Post[];
