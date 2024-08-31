@@ -5,7 +5,7 @@ import {
   SITE_TITLE,
   SITE_URL,
 } from "../lib/constants";
-import "../styles/index.css";
+import "../styles/globals.css";
 
 export default function RootLayout({
   children,
