@@ -1,57 +1,40 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
 import Container from "../../../components/container";
 import PostBody from "../../../components/post-body";
 import PostHeader from "../../../components/post-header";
 import Layout from "../../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../../lib/api";
-import PostTitle from "../../../components/post-title";
 import Head from "next/head";
 import type PostType from "../../../interfaces/post";
 
-type Props = {
-  post: PostType;
-  preview?: boolean;
-};
-
-export default function Post({ post, preview }: Props) {
-  const router = useRouter();
+export default async function Post({ params }: any) {
+  const post = await getPost(params.slug);
   const ogImage = `${process.env.NEXT_PUBLIC_IMAGE_HOST}${post.ogImage.url}`;
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />;
+  if (!post?.slug) {
+    // TODO: 後に404pageを追加する
+    return "not found page";
   }
   return (
-    <Layout preview={preview} ogImage={ogImage}>
+    <Layout ogImage={ogImage}>
       <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <Head>
-              <title>{post.title}</title>
-            </Head>
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              tags={post.tags}
-            />
-            <PostBody content={post.content} />
-          </>
-        )}
+        <>
+          <Head>
+            <title>{post.title}</title>
+          </Head>
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            tags={post.tags}
+          />
+          <PostBody content={post.content} />
+        </>
       </Container>
     </Layout>
   );
 }
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
-
-export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(params.slug, [
+const getPost = async (slug: string): Promise<PostType> => {
+  const post = getPostBySlug(slug, [
     "title",
     "date",
     "slug",
@@ -60,30 +43,17 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
     "tags",
-  ]);
-  const content = post.content;
+  ]) as unknown as PostType;
 
-  return {
-    props: {
-      post: {
-        ...post,
-        content,
-      },
-    },
-  };
-}
+  return post;
+};
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const posts = getAllPosts(["slug"]);
-
-  return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
+  const paths = posts.map((post) => {
+    return {
+      slug: post.slug,
+    };
+  });
+  return paths;
 }
