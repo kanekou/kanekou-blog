@@ -9,7 +9,11 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Layout = ({ preview, ogImage = SITE_OG_IMAGE, children }: Props) => {
+const Layout = ({
+  preview = false,
+  ogImage = SITE_OG_IMAGE,
+  children,
+}: Props) => {
   return (
     <>
       <Meta
