@@ -2,7 +2,7 @@ import Container from "../../components/container";
 import Link from "next/link";
 import Layout from "../../components/layout";
 import Head from "next/head";
-import { getPostsByTags } from "../../lib/api";
+import { getTagsCount } from "../../lib/api";
 import { getTitleClass } from "../../components/more-stories";
 
 type TagProps = {
@@ -15,11 +15,8 @@ type RankedTagProps = TagProps & {
   tie: boolean;
 };
 
-type TagsProps = {
-  tags: TagProps[];
-};
-
-export default function Tags({ tags }: TagsProps) {
+export default async function Tags() {
+  const tags = await getTags();
   const rankedTagsMap = getRankedTagsMap(tags);
 
   // 件数が上位3つのtagは，1位から順に大きなボタンサイズにする
@@ -64,15 +61,9 @@ export default function Tags({ tags }: TagsProps) {
   );
 }
 
-export async function getStaticProps() {
-  const tags = getPostsByTags();
-
-  return {
-    props: {
-      tags: tags,
-    },
-  };
-}
+const getTags = async (): Promise<TagProps[]> => {
+  return getTagsCount();
+};
 
 const getRankedTagsMap = (tags: TagProps[]): Map<string, number> => {
   const orderedTags = tags
