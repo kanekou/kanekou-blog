@@ -12,6 +12,7 @@ type Props = {
 };
 
 export default async function Index({ params }: Props) {
+  // params.tagがURIエンコードされているので、decodeする
   const tag = decodeURIComponent(params.tag);
   const posts = await getPostWithTag(tag);
   return (
