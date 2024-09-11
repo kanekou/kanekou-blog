@@ -45,7 +45,7 @@ export async function generateStaticParams() {
   const tags = getAllTags();
   const paths = tags.map((tag) => {
     return {
-      tag: encodeURIComponent(tag),
+      tag: tag,
     };
   });
   return paths;
