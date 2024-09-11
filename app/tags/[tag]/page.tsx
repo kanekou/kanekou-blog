@@ -18,7 +18,7 @@ export default async function Index({ params }: Props) {
     <>
       <Layout>
         <Head>
-          <title>Tag: {tag}</title>
+          <title>Tagss: {tag}</title>
         </Head>
         <Container>
           <MoreStories posts={posts} title={tag} />
