@@ -6,11 +6,14 @@ import Head from "next/head";
 import { getAllTags, getPostsByTag } from "../../../lib/api";
 
 type Props = {
-  posts: Post[];
-  tag: string;
+  params: {
+    tag: string;
+  };
 };
 
-export default function Index({ posts, tag }: Props) {
+export default async function Index({ params }: Props) {
+  const tag = params.tag;
+  const posts = await getPostWithTag(params.tag);
   return (
     <>
       <Layout>
@@ -25,12 +28,9 @@ export default function Index({ posts, tag }: Props) {
   );
 }
 
-type Params = {
-  params: { tag: string };
-};
-
-export async function getStaticProps({ params }: Params) {
-  const posts = getPostsByTag(params.tag, [
+const getPostWithTag = async (tag: string): Promise<Post[]> => {
+  // FIXME: 型ガードする
+  return getPostsByTag(tag, [
     "title",
     "date",
     "slug",
@@ -38,26 +38,16 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "excerpt",
     "tags",
-  ]);
+  ]) as unknown as Post[];
+};
 
-  return {
-    props: {
-      posts: posts,
-      tag: params.tag,
-    },
-  };
-}
-
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const tags = getAllTags();
-  return {
-    paths: tags.map((tag) => {
-      return {
-        params: {
-          tag: tag,
-        },
-      };
-    }),
-    fallback: false,
-  };
+  const paths = tags.map((tag) => {
+    return {
+      tag: tag,
+    };
+  });
+  console.log("tags :", paths);
+  return paths;
 }
