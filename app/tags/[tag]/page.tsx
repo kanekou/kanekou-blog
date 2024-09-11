@@ -12,8 +12,8 @@ type Props = {
 };
 
 export default async function Index({ params }: Props) {
-  const tag = params.tag;
-  const posts = await getPostWithTag(params.tag);
+  const tag = decodeURIComponent(params.tag);
+  const posts = await getPostWithTag(tag);
   return (
     <>
       <Layout>
@@ -45,9 +45,8 @@ export async function generateStaticParams() {
   const tags = getAllTags();
   const paths = tags.map((tag) => {
     return {
-      tag: tag,
+      tag: encodeURIComponent(tag),
     };
   });
-  console.log("tags :", paths);
   return paths;
 }
