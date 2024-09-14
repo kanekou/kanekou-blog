@@ -6,7 +6,6 @@ import { getPostBySlug, getAllPosts } from "../../../lib/api";
 import Head from "next/head";
 import type PostType from "../../../interfaces/post";
 import type { Metadata, ResolvingMetadata } from "next";
-import { SITE_URL } from "../../../lib/constants";
 
 type Props = {
   params: { slug: string };
@@ -16,14 +15,12 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const post = await getPost(params.slug);
-  const ogImage = `${process.env.NEXT_PUBLIC_IMAGE_HOST}${post.ogImage.url}`;
-  const pathName = `${SITE_URL}/posts/${post.slug}`;
   const previousOG = (await parent).openGraph;
   return {
     openGraph: {
       ...previousOG,
-      url: pathName,
-      images: [ogImage],
+      url: `/posts/${post.slug}`,
+      images: post.ogImage.url,
       type: "article",
     },
   };

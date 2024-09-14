@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  SITE_DESCRIPTION,
-  SITE_OG_IMAGE,
-  SITE_TITLE,
-  SITE_URL,
-} from "../lib/constants";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../lib/constants";
 import "../styles/globals.css";
 
 export default function RootLayout({
@@ -21,6 +16,7 @@ export default function RootLayout({
 
 // TODO: meta.tsxと情報を合わせる
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   openGraph: {
@@ -29,7 +25,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_TITLE,
     type: "website",
-    images: [SITE_OG_IMAGE],
+    images: "/image.png",
   },
   twitter: { card: "summary_large_image" },
 };
