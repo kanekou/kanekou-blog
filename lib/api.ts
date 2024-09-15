@@ -62,7 +62,7 @@ export const getAllTags = (): string[] => {
   return Array.from(new Set(allPostTags));
 };
 
-export const getPostsByTags = () => {
+export const getTagsCount = () => {
   const allTags = getAllTags();
   const postsByTags = allTags.map((tag) => ({
     name: tag,

@@ -25,5 +25,5 @@ const Alert = () => {
     </div>
   );
 };
-
+// TODO: 不要なので、リファクタリング時に削除
 export default Alert;

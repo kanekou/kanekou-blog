@@ -1,21 +1,19 @@
+import type { Metadata } from "next";
 import Container from "../components/container";
 import MoreStories from "../components/more-stories";
-import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
-import Head from "next/head";
 import Post from "../interfaces/post";
+import { getAllPosts } from "../lib/api";
+import Layout from "../components/layout";
 
-type Props = {
-  allPosts: Post[];
+export const metadata: Metadata = {
+  title: "yummy yummy bread",
 };
 
-export default function Index({ allPosts }: Props) {
+export default async function Page() {
+  const allPosts = await getPosts();
   return (
     <>
       <Layout>
-        <Head>
-          <title>{"yummy yummy bread"}</title>
-        </Head>
         <Container>
           {allPosts.length > 0 && (
             <MoreStories posts={allPosts} title="Articles" />
@@ -26,7 +24,7 @@ export default function Index({ allPosts }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
+const getPosts = async (): Promise<Post[]> => {
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -35,9 +33,7 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
     "tags",
-  ]);
+  ]) as unknown as Post[];
 
-  return {
-    props: { allPosts },
-  };
+  return allPosts;
 };
