@@ -46,6 +46,7 @@ export default async function Tags() {
                   const rank = tagInfo[1];
                   return (
                     <Link
+                      key={tagName}
                       href={`/tags/${encodeURIComponent(tagName)}`}
                       className={getButtonStyle(rank)}
                     >
