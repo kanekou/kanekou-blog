@@ -14,7 +14,6 @@ export default function RootLayout({
   );
 }
 
-// TODO: meta.tsxと情報を合わせる
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: SITE_TITLE,
