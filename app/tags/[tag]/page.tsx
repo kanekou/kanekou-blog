@@ -1,7 +1,6 @@
 import Container from "../../../components/container";
 import MoreStories from "../../../components/more-stories";
 import Post from "../../../interfaces/post";
-import Layout from "../../../components/layout";
 import Head from "next/head";
 import { getAllTags, getPostsByTag } from "../../../lib/api";
 
@@ -17,14 +16,12 @@ export default async function Index({ params }: Props) {
   const posts = await getPostWithTag(tag);
   return (
     <>
-      <Layout>
-        <Head>
-          <title>Tagss: {tag}</title>
-        </Head>
-        <Container>
-          <MoreStories posts={posts} title={tag} />
-        </Container>
-      </Layout>
+      <Head>
+        <title>Tags: {tag}</title>
+      </Head>
+      <Container>
+        <MoreStories posts={posts} title={tag} />
+      </Container>
     </>
   );
 }

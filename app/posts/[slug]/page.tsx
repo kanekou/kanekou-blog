@@ -1,7 +1,6 @@
 import Container from "../../../components/container";
 import PostBody from "../../../components/post-body";
 import PostHeader from "../../../components/post-header";
-import Layout from "../../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../../lib/api";
 import Head from "next/head";
 import type PostType from "../../../interfaces/post";
@@ -33,22 +32,20 @@ export default async function Post({ params }: Props) {
     return "not found page";
   }
   return (
-    <Layout>
-      <Container>
-        <>
-          <Head>
-            <title>{post.title}</title>
-          </Head>
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            tags={post.tags}
-          />
-          <PostBody content={post.content} />
-        </>
-      </Container>
-    </Layout>
+    <Container>
+      <>
+        <Head>
+          <title>{post.title}</title>
+        </Head>
+        <PostHeader
+          title={post.title}
+          coverImage={post.coverImage}
+          date={post.date}
+          tags={post.tags}
+        />
+        <PostBody content={post.content} />
+      </>
+    </Container>
   );
 }
 
