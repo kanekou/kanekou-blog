@@ -3,7 +3,6 @@ import Container from "../components/container";
 import MoreStories from "../components/more-stories";
 import Post from "../interfaces/post";
 import { getAllPosts } from "../lib/api";
-import Layout from "../components/layout";
 
 export const metadata: Metadata = {
   title: "yummy yummy bread",
@@ -13,13 +12,11 @@ export default async function Page() {
   const allPosts = await getPosts();
   return (
     <>
-      <Layout>
-        <Container>
-          {allPosts.length > 0 && (
-            <MoreStories posts={allPosts} title="Articles" />
-          )}
-        </Container>
-      </Layout>
+      <Container>
+        {allPosts.length > 0 && (
+          <MoreStories posts={allPosts} title="Articles" />
+        )}
+      </Container>
     </>
   );
 }

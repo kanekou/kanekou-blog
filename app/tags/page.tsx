@@ -1,6 +1,5 @@
 import Container from "../../components/container";
 import Link from "next/link";
-import Layout from "../../components/layout";
 import Head from "next/head";
 import { getTagsCount } from "../../lib/api";
 import { getTitleClass } from "../../components/more-stories";
@@ -32,32 +31,30 @@ export default async function Tags() {
 
   return (
     <>
-      <Layout>
-        <Head>
-          <title>Tags</title>
-        </Head>
-        <Container>
-          <section className="max-w-4xl align-center mx-auto">
-            <h2 className={getTitleClass()}>Tags</h2>
-            <div className="flex flex-wrap items-center gap-2 md:gap-4">
-              {rankedTagsMap.size > 0 &&
-                Array.from(rankedTagsMap).map((tagInfo) => {
-                  const tagName = tagInfo[0];
-                  const rank = tagInfo[1];
-                  return (
-                    <Link
-                      key={tagName}
-                      href={`/tags/${encodeURIComponent(tagName)}`}
-                      className={getButtonStyle(rank)}
-                    >
-                      {tagName}
-                    </Link>
-                  );
-                })}
-            </div>
-          </section>
-        </Container>
-      </Layout>
+      <Head>
+        <title>Tags</title>
+      </Head>
+      <Container>
+        <section className="max-w-4xl align-center mx-auto">
+          <h2 className={getTitleClass()}>Tags</h2>
+          <div className="flex flex-wrap items-center gap-2 md:gap-4">
+            {rankedTagsMap.size > 0 &&
+              Array.from(rankedTagsMap).map((tagInfo) => {
+                const tagName = tagInfo[0];
+                const rank = tagInfo[1];
+                return (
+                  <Link
+                    key={tagName}
+                    href={`/tags/${encodeURIComponent(tagName)}`}
+                    className={getButtonStyle(rank)}
+                  >
+                    {tagName}
+                  </Link>
+                );
+              })}
+          </div>
+        </section>
+      </Container>
     </>
   );
 }
