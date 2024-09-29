@@ -1,5 +1,6 @@
 import Alert from "./alert";
 import Header from "./header";
+import Footer from "./footer";
 
 type Props = {
   preview?: boolean;
@@ -13,6 +14,7 @@ const Layout = ({ preview = false, children }: Props) => {
       {preview && <Alert />}
 
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };
