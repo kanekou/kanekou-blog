@@ -5,6 +5,7 @@ import CodeBlock from "./code-block";
 
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
+import LinkCard from "./link-card";
 
 type Props = {
   content: string;
@@ -20,7 +21,7 @@ const PostBody = ({ content }: Props) => {
           remarkGfm,
           [remarkToc, { maxDepth: 2, heading: "目次" }],
         ]}
-        components={{ code: CodeBlock }}
+        components={{ code: CodeBlock, a: LinkCard }}
       />
     </div>
   );

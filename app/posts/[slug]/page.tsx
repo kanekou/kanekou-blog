@@ -6,9 +6,17 @@ import Head from "next/head";
 import type PostType from "../../../interfaces/post";
 import type { Metadata, ResolvingMetadata } from "next";
 
+export type Meta = {
+  url: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
 type Props = {
   params: { slug: string };
 };
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
