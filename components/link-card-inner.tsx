@@ -5,7 +5,9 @@ type LinkCardInnerProps = {
   href: string;
 };
 
-const LinkCardInner = async ({ href }: LinkCardInnerProps) => {
+const LinkCardInner = async ({
+  href,
+}: LinkCardInnerProps): Promise<JSX.Element> => {
   const meta = await getMetaData(href);
   if (!meta) {
     return <LinkCardError href={href} />;
