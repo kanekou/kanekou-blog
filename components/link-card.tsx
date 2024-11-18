@@ -20,7 +20,7 @@ const LinkCard = ({ children, href }: Props): JSX.Element => {
     return (
       <>
         <Suspense fallback={<div>Loading...</div>}>
-          {/* @ts-expect-error Server Component */}
+          {/* @ts-ignore Server Component */}
           <LinkCardInner href={url.href} />
         </Suspense>
       </>
@@ -28,7 +28,7 @@ const LinkCard = ({ children, href }: Props): JSX.Element => {
   }
 
   return (
-    <a href={href} target="_blank" rel="norefferer">
+    <a href={href} target="_blank" rel="noreferrer">
       {children}
     </a>
   );
@@ -42,7 +42,7 @@ type LinkCardInnerProps = {
 
 const LinkCardError = ({ href }: LinkCardInnerProps): JSX.Element => {
   return (
-    <a href={href} target="_blank" rel="norefferer">
+    <a href={href} target="_blank" rel="noreferrer">
       <p>ページを読み込めませんでした</p>
     </a>
   );
