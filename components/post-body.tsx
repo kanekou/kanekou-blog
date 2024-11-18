@@ -5,7 +5,7 @@ import CodeBlock from "./code-block";
 
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
-import LinkCard from "./link-card";
+import LinkCard from "./link-card/views";
 
 type Props = {
   content: string;

@@ -1,8 +1,6 @@
-import { Meta } from "../app/posts/[slug]/page";
-import { parse } from "node-html-parser";
 import { Suspense } from "react";
 import LinkCardInner from "./link-card-inner";
-import { useState } from "react";
+import LinkCardError from "./link-card-error";
 
 type Props = {
   href: string;
@@ -35,15 +33,3 @@ const LinkCard = ({ children, href }: Props): JSX.Element => {
 };
 
 export default LinkCard;
-
-type LinkCardInnerProps = {
-  href: string;
-};
-
-const LinkCardError = ({ href }: LinkCardInnerProps): JSX.Element => {
-  return (
-    <a href={href} target="_blank" rel="noreferrer">
-      <p>ページを読み込めませんでした</p>
-    </a>
-  );
-};

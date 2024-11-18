@@ -1,5 +1,6 @@
-import { Meta } from "../app/posts/[slug]/page";
+import { Meta } from "../../../app/posts/[slug]/page";
 import { parse } from "node-html-parser";
+import LinkCardError from "./link-card-error";
 
 type LinkCardInnerProps = {
   href: string;
@@ -39,14 +40,6 @@ const LinkCardInner = async ({
 };
 
 export default LinkCardInner;
-
-const LinkCardError = ({ href }: LinkCardInnerProps): JSX.Element => {
-  return (
-    <a href={href} target="_blank" rel="norefferer">
-      <p>ページを読み込めませんでした</p>
-    </a>
-  );
-};
 
 // urlのメタデータを取得
 const getMetaData = async (url: string): Promise<Meta | null> => {
