@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import LinkCardInner from "./link-card-inner";
 import LinkCardError from "./link-card-error";
+import LinkCardSkeleton from "./link-card-skeleton";
 
 type Props = {
   href: string;
@@ -9,8 +10,8 @@ type Props = {
 
 // 参考:
 // https://zenn.dev/dl10yr/articles/b49e70fe595c14
-// github.com/y-hiraoka/stin-blog/blob/main/src/components/shared/RichLinkCard.tsx
-https: const LinkCard = ({ children, href }: Props): JSX.Element => {
+// https://github.com/y-hiraoka/stin-blog/blob/main/src/components/shared/RichLinkCard.tsx
+const LinkCard = ({ children, href }: Props): JSX.Element => {
   if (children === href) {
     const url = new URL(href);
     if (!url) {
@@ -19,7 +20,7 @@ https: const LinkCard = ({ children, href }: Props): JSX.Element => {
 
     return (
       <>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<LinkCardSkeleton />}>
           {/* @ts-ignore Server Component */}
           <LinkCardInner href={url.href} />
         </Suspense>
