@@ -7,8 +7,10 @@ type Props = {
   children: string;
 };
 
-// 参考：https://zenn.dev/dl10yr/articles/b49e70fe595c14
-const LinkCard = ({ children, href }: Props): JSX.Element => {
+// 参考:
+// https://zenn.dev/dl10yr/articles/b49e70fe595c14
+// github.com/y-hiraoka/stin-blog/blob/main/src/components/shared/RichLinkCard.tsx
+https: const LinkCard = ({ children, href }: Props): JSX.Element => {
   if (children === href) {
     const url = new URL(href);
     if (!url) {
