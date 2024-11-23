@@ -28,9 +28,9 @@ const LinkCardInner = async ({
         <div className="truncate font-normal text-gray-700">
           {meta.description}
         </div>
-        <div className="text-[0.78em] flex -mt-2 items-center overflow-hidden whitespace-nowrap">
+        <div className="text-[0.78em] flex mt-2 items-center overflow-hidden whitespace-nowrap">
           <img
-            className="w-4 h-4"
+            className="m-1"
             src={getFavicon(url.hostname)}
             alt={meta.title}
           />
