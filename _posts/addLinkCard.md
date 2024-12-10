@@ -1,10 +1,10 @@
 ---
 title: "個人ブログにリンクカードを追加しました"
 excerpt: "個人ブログにリンクカード追加したので、実装内容を共有します。"
-coverImage: ""
+coverImage: "/assets/blog/addLinkCard/cover.png"
 date: "2024-09-22"
 ogImage:
-  url: ""
+  url: "/assets/blog/addLinkCard/cover.png"
 tags:
   - "個人ブログ"
   - "フロントエンド"
@@ -25,23 +25,15 @@ components/link-card/
 ├── types
 │   └── index.ts
 └── views
-    ├── index.tsx //LinkCardコンポーネント。メインの呼び出し。
-    ├── link-card-error.tsx //LinkCardErrorコンポーネント。データの取得失敗時の描写。
-    ├── link-card-inner.tsx //LinkCardInnerコンポーネント。データ取得処理と、取得後の描写。
+    ├── index.tsx              //LinkCardコンポーネント。メインの呼び出し。
+    ├── link-card-error.tsx    //LinkCardErrorコンポーネント。データの取得失敗時の描写。
+    ├── link-card-inner.tsx    //LinkCardInnerコンポーネント。データ取得処理と、取得後の描写。
     └── link-card-skeleton.tsx //LinkCardSkeltonコンポーネント。データ取得中の描写。
 ```
 
 ## コンポーネントの相関図
 
-```mermaid
-graph TD
-LinkCard -.URL解析失敗.-> LinkCardError
-LinkCard -.データ取得中
-(Suspense Fallback).-> LinkCardSkelton
-LinkCard -.データ取得と描写(Suspense).-> LinkCardInner
-LinkCardInner -.データ取得失敗.-> LinkCardError
-
-```
+![コンポーネント相関図](https://private-user-images.githubusercontent.com/23465233/394255883-eef9a280-79f2-4146-a5b3-7d8d5b5ef2b3.svg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzM4MzEwMDQsIm5iZiI6MTczMzgzMDcwNCwicGF0aCI6Ii8yMzQ2NTIzMy8zOTQyNTU4ODMtZWVmOWEyODAtNzlmMi00MTQ2LWE1YjMtN2Q4ZDViNWVmMmIzLnN2Zz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjEwVDExMzgyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU4ZGYxNTZlZDcwZWY1NmFjMDE1MmE3YWFkNTI3MDhjMzA3Zjk1MTMxNWVlNDAyZDIzOWFiNzgzNjQ0ODkwZmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.WfKY7fcp5e0XbeWCNTSrSjM2rZea1xtoZ_TUXsaR-3U)
 
 ## 実装内容
 
@@ -50,7 +42,7 @@ LinkCardInner -.データ取得失敗.-> LinkCardError
 ### PostBody Component
 
 - markdown を表示する Component です。react-markdown を用いて markdown を HTML に変更しています。
-- components に自作の LinkCards コンポーネントを指定することで、マークダウンの URL を解析してリンクカードに変換しています。
+- components に自作の LinkCard コンポーネントを指定することで、マークダウンの URL を解析してリンクカードに変換しています。
 
 ```jsx:components/post-body.tsx:
 import Markdown from "react-markdown";
@@ -89,10 +81,6 @@ export default PostBody;
 #### LinkCard Component
 
 - リンクカードを表示するメインコンポーネントです。
-- ServerComponent を利用することで、非同期処理(async, await)を直感的に記載することができます。呼び出し元は suspense を用いることによりフェッチ中とフェッチ後の描写を行います。
-- suspense を利用し、データを取得中はローディング状態としてスケルトン状態のリンクカードを表示するようにしています。データが取得されたのち、LinkCardInner コンポーネント内でリンクカードを描写しています。データ取得処理は LinkCardInner コンポーネント内で記述されています。
-- 実装時点では typescript が非同期処理に対応していないため、`ts-ignore`で型チェックを無効化しています
-  - https://github.com/vercel/next.js/issues/42292
 
 ```jsx:components/link-card/views/index.tsx
 import { Suspense } from "react";
@@ -132,9 +120,14 @@ const LinkCard = ({ children, href }: Props): JSX.Element => {
 export default LinkCard;
 ```
 
-### linkCardInner Component
+- ServerComponent を利用することで、非同期処理(async, await)を直感的に記載することができます。呼び出し元は suspense を用いることによりフェッチ中とフェッチ後の描写を行います。
+- suspense を利用し、データを取得中はローディング状態としてスケルトン状態のリンクカードを表示するようにしています。データが取得されたのち、LinkCardInner コンポーネント内でリンクカードを描写しています。データ取得処理は LinkCardInner コンポーネント内で記述されています。
+- 実装時点では typescript が非同期処理に対応していないため、`ts-ignore`で型チェックを無効化しています。
+  https://github.com/vercel/next.js/issues/42292
 
-- リンクカードの中身を表示するコンポーネント
+### LinkCardInner Component
+
+- リンクカードの中身を表示するコンポーネントです。
 - データ取得処理もこちらに記載されています。
 
 ```jsx:components/link-card/views/link-card-inner.tsx
@@ -195,7 +188,7 @@ export default LinkCardInner;
 
 ## 感想
 
-データフェッチ処理は、これまで useEffect を用いて書く必要がありましたが、サーバコンポーネントを用いて簡潔に記載することが可能となりました。useEffect を使用した場合、ステート管理と副作用に気を使う必要がありましたが、それらから解消され直感的に記載できるようになったのはかなり嬉しいポイントだと思います。
+ServerComponent を用いると、データフェッチ処理を useEffect を用いず簡潔に記載することが可能です。useEffect を使用した場合、ステート管理と副作用に気を使う必要がありましたが、それらから解消され直感的に記載できるようになったのはかなり嬉しいポイントだと思います。
 
 ## 参考サイト
 
