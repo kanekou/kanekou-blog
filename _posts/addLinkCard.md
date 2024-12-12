@@ -175,7 +175,7 @@ const LinkCardInner = async ({
       </div>
       {meta.image && (
         <img
-          className="object-cover w-48 m-0 rounded-r-lg"
+          className="object-cover m-auto my-0 mr-0"
           src={meta.image}
           alt={meta.title}
         />
