@@ -14,7 +14,7 @@ tags:
 
 ## はじめに
 
-下記のような LinkCard を実装しました(当該実装の PR となります)。URL を 1 段落に記載すると、その URL のメタデータを取得してリンクカードとして表示されます。
+下記のような LinkCard を実装しました(当該実装の 主な PR となります ※後に CSS で若干の[修正 PR](https://github.com/kanekou/kanekou-blog/pull/73)あり)。URL を 1 段落に記載すると、その URL のメタデータを取得してリンクカードとして表示されます。
 
 https://github.com/kanekou/kanekou-blog/pull/66
 
@@ -175,7 +175,7 @@ const LinkCardInner = async ({
       </div>
       {meta.image && (
         <img
-          className="object-cover w-48 m-0 rounded-r-lg"
+          className="object-cover m-auto my-0 mr-0"
           src={meta.image}
           alt={meta.title}
         />
