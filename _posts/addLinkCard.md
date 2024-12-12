@@ -14,7 +14,7 @@ tags:
 
 ## はじめに
 
-下記のような LinkCard を実装しました(当該実装の PR となります)。URL を 1 段落に記載すると、その URL のメタデータを取得してリンクカードとして表示されます。
+下記のような LinkCard を実装しました(当該実装の 主な PR となります ※後に CSS で若干の[修正 PR](https://github.com/kanekou/kanekou-blog/pull/73)あり)。URL を 1 段落に記載すると、その URL のメタデータを取得してリンクカードとして表示されます。
 
 https://github.com/kanekou/kanekou-blog/pull/66
 
