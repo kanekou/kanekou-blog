@@ -123,7 +123,8 @@ export default LinkCard;
 - ServerComponent を利用することで、非同期処理(async, await)を直感的に記載することができます。呼び出し元は suspense を用いることによりフェッチ中とフェッチ後の描写を行います。
 - suspense を利用し、データを取得中はローディング状態としてスケルトン状態のリンクカードを表示するようにしています。データが取得されたのち、LinkCardInner コンポーネント内でリンクカードを描写しています。データ取得処理は LinkCardInner コンポーネント内で記述されています。
 - 実装時点では typescript が非同期処理に対応していないため、`ts-ignore`で型チェックを無効化しています。
-  https://github.com/vercel/next.js/issues/42292
+
+https://github.com/vercel/next.js/issues/42292
 
 ### LinkCardInner Component
 
