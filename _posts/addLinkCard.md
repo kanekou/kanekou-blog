@@ -2,7 +2,7 @@
 title: "個人ブログにリンクカードを追加しました"
 excerpt: "個人ブログにリンクカード追加したので、実装内容を共有します。"
 coverImage: "/assets/blog/addLinkCard/cover.png"
-date: "2024-12-10"
+date: "2024-12-12"
 ogImage:
   url: "/assets/blog/addLinkCard/cover.png"
 tags:
