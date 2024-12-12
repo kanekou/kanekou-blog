@@ -2,7 +2,7 @@
 title: "個人ブログにリンクカードを追加しました"
 excerpt: "個人ブログにリンクカード追加したので、実装内容を共有します。"
 coverImage: "/assets/blog/addLinkCard/cover.png"
-date: "2024-12-10"
+date: "2024-12-12"
 ogImage:
   url: "/assets/blog/addLinkCard/cover.png"
 tags:
@@ -33,7 +33,7 @@ components/link-card/
 
 ## コンポーネントの相関図
 
-![コンポーネント相関図](https://private-user-images.githubusercontent.com/23465233/394255883-eef9a280-79f2-4146-a5b3-7d8d5b5ef2b3.svg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzM4MzIyOTcsIm5iZiI6MTczMzgzMTk5NywicGF0aCI6Ii8yMzQ2NTIzMy8zOTQyNTU4ODMtZWVmOWEyODAtNzlmMi00MTQ2LWE1YjMtN2Q4ZDViNWVmMmIzLnN2Zz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjEwVDExNTk1N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNhN2MzNGZiODE0NWJhOTU0NDYzNWExMTJhY2I1OTI4Y2M4NDRkYzQyMGUxMDQ0MGYzNzIzZDJkOTBiYzdjMjAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.uvCacp0rSnPvxxQMrgKbZ9IKFIW_DqpJh78JOI710cI)
+![コンポーネント相関図](https://github.com/user-attachments/assets/eef9a280-79f2-4146-a5b3-7d8d5b5ef2b3)
 
 ## 実装内容
 
@@ -123,7 +123,8 @@ export default LinkCard;
 - ServerComponent を利用することで、非同期処理(async, await)を直感的に記載することができます。呼び出し元は suspense を用いることによりフェッチ中とフェッチ後の描写を行います。
 - suspense を利用し、データを取得中はローディング状態としてスケルトン状態のリンクカードを表示するようにしています。データが取得されたのち、LinkCardInner コンポーネント内でリンクカードを描写しています。データ取得処理は LinkCardInner コンポーネント内で記述されています。
 - 実装時点では typescript が非同期処理に対応していないため、`ts-ignore`で型チェックを無効化しています。
-  https://github.com/vercel/next.js/issues/42292
+
+https://github.com/vercel/next.js/issues/42292
 
 ### LinkCardInner Component
 
