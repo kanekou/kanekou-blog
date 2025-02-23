@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import LinkCardInner from "./link-card-inner";
 import LinkCardError from "./link-card-error";
 import LinkCardSkeleton from "./link-card-skeleton";
+import { TABLE_OF_CONTENTS_PREFIX } from "../../../lib/constants";
 
 type Props = {
   href: string;
@@ -29,7 +30,7 @@ const LinkCard = ({ children, href }: Props): JSX.Element => {
   }
 
   // NOTE: 目次の場合、同じtab内で遷移するようにする
-  if (href.startsWith("#toc-")) {
+  if (href.startsWith(`#${TABLE_OF_CONTENTS_PREFIX}`)) {
     return <a href={href}>{children}</a>;
   }
   return (
