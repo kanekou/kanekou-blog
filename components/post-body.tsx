@@ -12,14 +12,15 @@ type Props = {
 };
 
 const PostBody = ({ content }: Props) => {
+  const linkPrefix: string = "toc-";
   return (
     <div className="prose mx-auto pb-8">
       <Markdown
         children={content}
-        rehypePlugins={[rehypeRaw, rehypeSlug]}
+        rehypePlugins={[rehypeRaw, [rehypeSlug, { prefix: linkPrefix }]]}
         remarkPlugins={[
           remarkGfm,
-          [remarkToc, { maxDepth: 2, heading: "目次" }],
+          [remarkToc, { maxDepth: 2, heading: "目次", prefix: linkPrefix }],
         ]}
         components={{ code: CodeBlock, a: LinkCard }}
       />

@@ -28,8 +28,12 @@ const LinkCard = ({ children, href }: Props): JSX.Element => {
     );
   }
 
+  // NOTE: 目次の場合、同じtab内で遷移するようにする
+  if (href.startsWith("#toc-")) {
+    return <a href={href}>{children}</a>;
+  }
   return (
-    <a href={href} target="_blank" rel="noreferrer">
+    <a href={href} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );
