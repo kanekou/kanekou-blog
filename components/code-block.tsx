@@ -1,5 +1,8 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { Prism, SyntaxHighlighterProps } from 'react-syntax-highlighter';
+// https://github.com/react-syntax-highlighter/react-syntax-highlighter/issues/539#issuecomment-1869182939
+const SyntaxHighlighter = (Prism as any) as React.FC<SyntaxHighlighterProps>;
 import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
 
 type Props = {
   className: any;
@@ -28,16 +31,16 @@ const CodeBlock = ({ className, children, ...rest }: Props) => {
       />
     </>
   ) : // 改行が含まれている場合、コードブロックで表示。そうでない場合、インラインで表示。
-  containNewline(children) ? (
-    <code {...rest}>{children}</code>
-  ) : (
-    <code
-      {...rest}
-      className="mx-1 rounded-md bg-stone-200 py-1 px-2 text-red-600"
-    >
-      {children}
-    </code>
-  );
+    containNewline(children) ? (
+      <code {...rest}>{children}</code>
+    ) : (
+      <code
+        {...rest}
+        className="mx-1 rounded-md bg-stone-200 py-1 px-2 text-red-600"
+      >
+        {children}
+      </code>
+    );
 };
 
 export default CodeBlock;
