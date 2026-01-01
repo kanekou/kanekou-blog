@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KANEKOU_BLOG }}'
           channelId: live
           projectId: kanekou-blog
+          entryPoint: frontend
